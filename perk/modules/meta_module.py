@@ -13,7 +13,7 @@ from liger_kernel.transformers import (
 
 from perk.model import CausalLM
 from perk.modules.base_module import BaseModule
-from perk.optimizer import LSLRSchedular
+from perk.lslr_schedular import LSLRSchedular
 from perk.inference import LLM_Generator
 from perk.utils.data_utils import get_features
 

@@ -5,7 +5,7 @@ model_name_or_path: gpt2          # the HuggingFace name or path of the language
 
 # path param:
 data_dir: /path/to/data              # the data directory for train and eval data
-output_dir: /path/to/checkpoints                # the output directory for checkpoints and predictions
+output_dir: /content/perk/checkpoints                # the output directory for checkpoints and predictions
 
 # inner_param:
 inner_opt: adam                   # the optimizer used for inner loop optimization: [adam, sgd] adam -> AdamW, sgd -> SGD

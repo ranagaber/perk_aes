@@ -27,7 +27,6 @@ from torch.func import jvp
 
 from . import patch as _patch
 from . import utils as _utils
-from . import ademamix as _ademamix
 
 _GroupedGradsType = _typing.List[_typing.List[_torch.Tensor]]
 _StateType = _typing.List[_typing.DefaultDict[int, _typing.Any]]
@@ -902,7 +901,6 @@ class DifferentiableRprop(DifferentiableOptimizer):
 
 _OptMappingType = _typing.Dict[_torch.optim.Optimizer, _typing.Type[DifferentiableOptimizer]]
 _opt_mapping: _OptMappingType = {
-    _ademamix.AdEMAMix: DifferentiableAdEMAMix,
     _torch.optim.Adadelta: DifferentiableAdadelta,
     _torch.optim.Adagrad: DifferentiableAdagrad,
     _torch.optim.Adam: DifferentiableAdam,

@@ -5,7 +5,10 @@ import logging
 from omegaconf import OmegaConf
 
 from perk.train import setup_trainer
-from perk.utils.wandb_utils import setup_wandb
+from perk.utils.wandb_utils import (
+    create_wandb_vars,
+    init_wandb_logger,
+)
 from perk.modules.meta_module import MetaLMModule
 
 util_logger = logging.getLogger("perk.runner")
@@ -15,7 +18,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 def run(args):
     util_logger.info("Setting up configuration for model runner...")
 
-    setup_wandb(args)
+    create_wandb_vars(args)
+    wandb_logger = init_wandb_logger(args)
     wandb.config = OmegaConf.to_container(
         args, resolve=True, throw_on_missing=True)
 
